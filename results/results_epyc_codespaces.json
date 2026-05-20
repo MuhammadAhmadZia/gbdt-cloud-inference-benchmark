@@ -1,0 +1,656 @@
+{
+  "hardware": {
+    "platform_tag": "epyc_codespaces",
+    "python_platform": "Linux-6.8.0-1044-azure-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "machine": "x86_64",
+    "cpu_count": 2,
+    "cpu_model": "AMD EPYC 7763 64-Core Processor",
+    "isa_flags": {
+      "avx": true,
+      "avx2": true,
+      "avx512f": false,
+      "avx512vnni": false,
+      "f16c": true,
+      "fma": true
+    },
+    "ram_kb": 8135228
+  },
+  "config": {
+    "n_repeats": 50,
+    "batch_size": 10000,
+    "platform_tag": "epyc_codespaces"
+  },
+  "experiments": [
+    {
+      "dataset": "olist",
+      "model": "lightgbm",
+      "precision": "fp64",
+      "n_reps": 50,
+      "latency_ms": {
+        "mean": 58.97458447999725,
+        "std": 24.538849912534346,
+        "median": 50.14999700000544,
+        "p95": 94.38742344999005,
+        "p5": 48.73262684993733
+      },
+      "energy_kwh": {
+        "total": 0.0002233334236637307,
+        "per_rep": 4.466668473274614e-06
+      },
+      "accuracy": {
+        "metric": "roc_auc",
+        "value": 0.7869172932330828
+      }
+    },
+    {
+      "dataset": "olist",
+      "model": "lightgbm",
+      "precision": "fp32",
+      "n_reps": 50,
+      "latency_ms": {
+        "mean": 54.49958574000448,
+        "std": 10.510682746085442,
+        "median": 50.59477650002009,
+        "p95": 69.17550889997413,
+        "p5": 48.939603399981024
+      },
+      "energy_kwh": {
+        "total": 0.00021419282279560968,
+        "per_rep": 4.283856455912193e-06
+      },
+      "accuracy": {
+        "metric": "roc_auc",
+        "value": 0.7869141604010026
+      }
+    },
+    {
+      "dataset": "olist",
+      "model": "lightgbm",
+      "precision": "fp16",
+      "n_reps": 50,
+      "latency_ms": {
+        "mean": 54.32049429999779,
+        "std": 9.651000891324665,
+        "median": 49.812191499995606,
+        "p95": 80.6039511000165,
+        "p5": 48.97918085000583
+      },
+      "energy_kwh": {
+        "total": 0.00021024426863879253,
+        "per_rep": 4.204885372775851e-06
+      },
+      "accuracy": {
+        "metric": "roc_auc",
+        "value": 0.7868700159489632
+      }
+    },
+    {
+      "dataset": "olist",
+      "model": "lightgbm",
+      "precision": "bf16",
+      "n_reps": 50,
+      "latency_ms": {
+        "mean": 58.23337664000064,
+        "std": 14.686568193584094,
+        "median": 50.51001300006419,
+        "p95": 91.70133179999311,
+        "p5": 48.82861484997534
+      },
+      "energy_kwh": {
+        "total": 0.0002240482897690498,
+        "per_rep": 4.480965795380996e-06
+      },
+      "accuracy": {
+        "metric": "roc_auc",
+        "value": 0.7868700159489632
+      }
+    },
+    {
+      "dataset": "olist",
+      "model": "lightgbm",
+      "precision": "int8",
+      "n_reps": 50,
+      "latency_ms": {
+        "mean": 29.319098980008675,
+        "std": 9.379766814660591,
+        "median": 24.491211499992005,
+        "p95": 50.20894140000107,
+        "p5": 24.204207650001308
+      },
+      "energy_kwh": {
+        "total": 0.00010295086050475965,
+        "per_rep": 2.059017210095193e-06
+      },
+      "accuracy": {
+        "metric": "roc_auc",
+        "value": 0.5324556419457736
+      }
+    },
+    {
+      "dataset": "olist",
+      "model": "xgboost",
+      "precision": "fp64",
+      "n_reps": 50,
+      "latency_ms": {
+        "mean": 27.214044599993485,
+        "std": 6.51064626394992,
+        "median": 25.41206949996422,
+        "p95": 34.005575100013615,
+        "p5": 25.155288850021407
+      },
+      "energy_kwh": {
+        "total": 5.670850150078168e-05,
+        "per_rep": 1.1341700300156335e-06
+      },
+      "accuracy": {
+        "metric": "roc_auc",
+        "value": 0.7838882718159034
+      }
+    },
+    {
+      "dataset": "olist",
+      "model": "xgboost",
+      "precision": "fp32",
+      "n_reps": 50,
+      "latency_ms": {
+        "mean": 28.42531875999157,
+        "std": 7.033235745884835,
+        "median": 25.55780099999083,
+        "p95": 44.85245315000839,
+        "p5": 25.24547584996526
+      },
+      "energy_kwh": {
+        "total": 7.777026582882278e-05,
+        "per_rep": 1.5554053165764555e-06
+      },
+      "accuracy": {
+        "metric": "roc_auc",
+        "value": 0.7838882718159034
+      }
+    },
+    {
+      "dataset": "olist",
+      "model": "xgboost",
+      "precision": "fp16",
+      "n_reps": 50,
+      "latency_ms": {
+        "mean": 28.087538199999926,
+        "std": 6.905560167078923,
+        "median": 25.446413499992104,
+        "p95": 43.135066449957534,
+        "p5": 25.209893049964194
+      },
+      "energy_kwh": {
+        "total": 7.106157684093616e-05,
+        "per_rep": 1.421231536818723e-06
+      },
+      "accuracy": {
+        "metric": "roc_auc",
+        "value": 0.783619417862839
+      }
+    },
+    {
+      "dataset": "olist",
+      "model": "xgboost",
+      "precision": "bf16",
+      "n_reps": 50,
+      "latency_ms": {
+        "mean": 26.108205319987974,
+        "std": 2.2221931279618796,
+        "median": 25.43470749998278,
+        "p95": 30.27522214999862,
+        "p5": 25.21596939996016
+      },
+      "energy_kwh": {
+        "total": 4.4308408182471394e-05,
+        "per_rep": 8.861681636494279e-07
+      },
+      "accuracy": {
+        "metric": "roc_auc",
+        "value": 0.783619417862839
+      }
+    },
+    {
+      "dataset": "olist",
+      "model": "xgboost",
+      "precision": "int8",
+      "n_reps": 50,
+      "latency_ms": {
+        "mean": 29.33788955999944,
+        "std": 8.046787724960007,
+        "median": 25.603290499986997,
+        "p95": 49.98863520004306,
+        "p5": 25.072885200017936
+      },
+      "energy_kwh": {
+        "total": 9.802712274976123e-05,
+        "per_rep": 1.9605424549952245e-06
+      },
+      "accuracy": {
+        "metric": "roc_auc",
+        "value": 0.5391255126452494
+      }
+    },
+    {
+      "dataset": "olist",
+      "model": "catboost",
+      "precision": "fp64",
+      "n_reps": 50,
+      "latency_ms": {
+        "mean": 7.9550638999967305,
+        "std": 4.885496131035781,
+        "median": 5.535139500068453,
+        "p95": 18.298817049941363,
+        "p5": 5.414917749965298
+      },
+      "energy_kwh": {
+        "total": 1.4801561837509387e-05,
+        "per_rep": 2.960312367501877e-07
+      },
+      "accuracy": {
+        "metric": "roc_auc",
+        "value": 0.7764233025746183
+      }
+    },
+    {
+      "dataset": "olist",
+      "model": "catboost",
+      "precision": "fp32",
+      "n_reps": 50,
+      "latency_ms": {
+        "mean": 7.403479680006058,
+        "std": 4.145455756840213,
+        "median": 5.456992999995691,
+        "p95": 17.482044500002296,
+        "p5": 4.963483449984096
+      },
+      "energy_kwh": {
+        "total": 1.447924303028064e-05,
+        "per_rep": 2.895848606056128e-07
+      },
+      "accuracy": {
+        "metric": "roc_auc",
+        "value": 0.7764233025746183
+      }
+    },
+    {
+      "dataset": "olist",
+      "model": "catboost",
+      "precision": "fp16",
+      "n_reps": 50,
+      "latency_ms": {
+        "mean": 5.898325259995545,
+        "std": 1.5840074727161662,
+        "median": 5.47376549997125,
+        "p95": 9.266388750029355,
+        "p5": 5.205555350016766
+      },
+      "energy_kwh": {
+        "total": 1.380340358938862e-05,
+        "per_rep": 2.760680717877724e-07
+      },
+      "accuracy": {
+        "metric": "roc_auc",
+        "value": 0.7760993392572341
+      }
+    },
+    {
+      "dataset": "olist",
+      "model": "catboost",
+      "precision": "bf16",
+      "n_reps": 50,
+      "latency_ms": {
+        "mean": 5.417562499994801,
+        "std": 0.252449879549939,
+        "median": 5.470578999961617,
+        "p95": 5.658545299979778,
+        "p5": 4.6956057499699
+      },
+      "energy_kwh": {
+        "total": 1.349361269079368e-05,
+        "per_rep": 2.698722538158736e-07
+      },
+      "accuracy": {
+        "metric": "roc_auc",
+        "value": 0.7760993392572341
+      }
+    },
+    {
+      "dataset": "olist",
+      "model": "catboost",
+      "precision": "int8",
+      "n_reps": 50,
+      "latency_ms": {
+        "mean": 5.481797440013452,
+        "std": 0.42102106783387866,
+        "median": 5.442797000057453,
+        "p95": 6.048438500010886,
+        "p5": 5.011445500065292
+      },
+      "energy_kwh": {
+        "total": 1.347731807837618e-05,
+        "per_rep": 2.695463615675236e-07
+      },
+      "accuracy": {
+        "metric": "roc_auc",
+        "value": 0.5378305137844612
+      }
+    },
+    {
+      "dataset": "nyc_taxi",
+      "model": "lightgbm",
+      "precision": "fp64",
+      "n_reps": 50,
+      "latency_ms": {
+        "mean": 249.16195317999612,
+        "std": 30.96517110530264,
+        "median": 234.46786350001503,
+        "p95": 301.11028425000654,
+        "p5": 222.3635183499198
+      },
+      "energy_kwh": {
+        "total": 0.0009824683550540424,
+        "per_rep": 1.9649367101080848e-05
+      },
+      "accuracy": {
+        "metric": "rmse",
+        "value": 0.2589078413194156
+      }
+    },
+    {
+      "dataset": "nyc_taxi",
+      "model": "lightgbm",
+      "precision": "fp32",
+      "n_reps": 50,
+      "latency_ms": {
+        "mean": 257.01967122000036,
+        "std": 40.76823468450433,
+        "median": 239.66070450001098,
+        "p95": 359.0517015499415,
+        "p5": 222.26452695001058
+      },
+      "energy_kwh": {
+        "total": 0.0010193964846588923,
+        "per_rep": 2.0387929693177847e-05
+      },
+      "accuracy": {
+        "metric": "rmse",
+        "value": 0.2589078413194156
+      }
+    },
+    {
+      "dataset": "nyc_taxi",
+      "model": "lightgbm",
+      "precision": "fp16",
+      "n_reps": 50,
+      "latency_ms": {
+        "mean": 250.40263160000228,
+        "std": 31.613865494585276,
+        "median": 236.37392900002396,
+        "p95": 303.08043449996944,
+        "p5": 222.10533499995222
+      },
+      "energy_kwh": {
+        "total": 0.0009890923395467464,
+        "per_rep": 1.9781846790934928e-05
+      },
+      "accuracy": {
+        "metric": "rmse",
+        "value": 0.2589118364925115
+      }
+    },
+    {
+      "dataset": "nyc_taxi",
+      "model": "lightgbm",
+      "precision": "bf16",
+      "n_reps": 50,
+      "latency_ms": {
+        "mean": 251.67784563999928,
+        "std": 31.92487921699667,
+        "median": 239.1145349999988,
+        "p95": 303.04528365004444,
+        "p5": 220.94594359999178
+      },
+      "energy_kwh": {
+        "total": 0.0010028584057661543,
+        "per_rep": 2.0057168115323086e-05
+      },
+      "accuracy": {
+        "metric": "rmse",
+        "value": 0.2589118364925115
+      }
+    },
+    {
+      "dataset": "nyc_taxi",
+      "model": "lightgbm",
+      "precision": "int8",
+      "n_reps": 50,
+      "latency_ms": {
+        "mean": 163.66593958000294,
+        "std": 21.25561793756825,
+        "median": 152.55269750002753,
+        "p95": 202.12902415002532,
+        "p5": 144.67765215004533
+      },
+      "energy_kwh": {
+        "total": 0.0005958538217082307,
+        "per_rep": 1.1917076434164614e-05
+      },
+      "accuracy": {
+        "metric": "rmse",
+        "value": 1.8144576186357355
+      }
+    },
+    {
+      "dataset": "nyc_taxi",
+      "model": "xgboost",
+      "precision": "fp64",
+      "n_reps": 50,
+      "latency_ms": {
+        "mean": 69.55550828000241,
+        "std": 15.799915190689456,
+        "median": 61.35757150002519,
+        "p95": 102.95024539998961,
+        "p5": 59.16086410001071
+      },
+      "energy_kwh": {
+        "total": 0.00026939578922872173,
+        "per_rep": 5.387915784574434e-06
+      },
+      "accuracy": {
+        "metric": "rmse",
+        "value": 0.2646770345920722
+      }
+    },
+    {
+      "dataset": "nyc_taxi",
+      "model": "xgboost",
+      "precision": "fp32",
+      "n_reps": 50,
+      "latency_ms": {
+        "mean": 66.07371326000703,
+        "std": 13.374049518417486,
+        "median": 61.092808000012155,
+        "p95": 102.67415845002,
+        "p5": 59.410403750041496
+      },
+      "energy_kwh": {
+        "total": 0.00021282423862216767,
+        "per_rep": 4.256484772443353e-06
+      },
+      "accuracy": {
+        "metric": "rmse",
+        "value": 0.2646770345920722
+      }
+    },
+    {
+      "dataset": "nyc_taxi",
+      "model": "xgboost",
+      "precision": "fp16",
+      "n_reps": 50,
+      "latency_ms": {
+        "mean": 71.23852856000667,
+        "std": 16.559796234905598,
+        "median": 61.922044000027654,
+        "p95": 106.80982909995576,
+        "p5": 59.5363067500557
+      },
+      "energy_kwh": {
+        "total": 0.00028544223531436105,
+        "per_rep": 5.708844706287221e-06
+      },
+      "accuracy": {
+        "metric": "rmse",
+        "value": 0.26525895127519344
+      }
+    },
+    {
+      "dataset": "nyc_taxi",
+      "model": "xgboost",
+      "precision": "bf16",
+      "n_reps": 50,
+      "latency_ms": {
+        "mean": 65.74324532000219,
+        "std": 11.226799714356376,
+        "median": 60.91313749999472,
+        "p95": 92.09175070001265,
+        "p5": 59.45465659997922
+      },
+      "energy_kwh": {
+        "total": 0.00021040234737510193,
+        "per_rep": 4.2080469475020385e-06
+      },
+      "accuracy": {
+        "metric": "rmse",
+        "value": 0.26525895127519344
+      }
+    },
+    {
+      "dataset": "nyc_taxi",
+      "model": "xgboost",
+      "precision": "int8",
+      "n_reps": 50,
+      "latency_ms": {
+        "mean": 68.51414695999893,
+        "std": 19.629727709175686,
+        "median": 60.81072149999045,
+        "p95": 119.42419425005824,
+        "p5": 59.1893382999956
+      },
+      "energy_kwh": {
+        "total": 0.0002508468697086688,
+        "per_rep": 5.016937394173376e-06
+      },
+      "accuracy": {
+        "metric": "rmse",
+        "value": 1.8865738958889842
+      }
+    },
+    {
+      "dataset": "nyc_taxi",
+      "model": "catboost",
+      "precision": "fp64",
+      "n_reps": 50,
+      "latency_ms": {
+        "mean": 5.489056240010086,
+        "std": 0.232662170136568,
+        "median": 5.525040500003797,
+        "p95": 5.79542509998987,
+        "p5": 4.829271800025481
+      },
+      "energy_kwh": {
+        "total": 1.3470646483741245e-05,
+        "per_rep": 2.694129296748249e-07
+      },
+      "accuracy": {
+        "metric": "rmse",
+        "value": 0.278560786478821
+      }
+    },
+    {
+      "dataset": "nyc_taxi",
+      "model": "catboost",
+      "precision": "fp32",
+      "n_reps": 50,
+      "latency_ms": {
+        "mean": 5.473323799994887,
+        "std": 0.24634298766983956,
+        "median": 5.524153999999726,
+        "p95": 5.75839770000357,
+        "p5": 4.8257931999842185
+      },
+      "energy_kwh": {
+        "total": 1.3899542274327193e-05,
+        "per_rep": 2.7799084548654384e-07
+      },
+      "accuracy": {
+        "metric": "rmse",
+        "value": 0.278560786478821
+      }
+    },
+    {
+      "dataset": "nyc_taxi",
+      "model": "catboost",
+      "precision": "fp16",
+      "n_reps": 50,
+      "latency_ms": {
+        "mean": 5.476055920003091,
+        "std": 0.4265679770240964,
+        "median": 5.4944235000107255,
+        "p95": 5.65857589996881,
+        "p5": 4.755340050019186
+      },
+      "energy_kwh": {
+        "total": 1.3468934053416949e-05,
+        "per_rep": 2.6937868106833896e-07
+      },
+      "accuracy": {
+        "metric": "rmse",
+        "value": 0.27855115851967205
+      }
+    },
+    {
+      "dataset": "nyc_taxi",
+      "model": "catboost",
+      "precision": "bf16",
+      "n_reps": 50,
+      "latency_ms": {
+        "mean": 6.084082140000646,
+        "std": 1.711448826564479,
+        "median": 5.524003000061839,
+        "p95": 10.228606099968829,
+        "p5": 5.398285450002049
+      },
+      "energy_kwh": {
+        "total": 1.5514485459919166e-05,
+        "per_rep": 3.1028970919838333e-07
+      },
+      "accuracy": {
+        "metric": "rmse",
+        "value": 0.27855115851967205
+      }
+    },
+    {
+      "dataset": "nyc_taxi",
+      "model": "catboost",
+      "precision": "int8",
+      "n_reps": 50,
+      "latency_ms": {
+        "mean": 6.882124259993816,
+        "std": 2.9896485927343814,
+        "median": 5.556684499993025,
+        "p95": 13.975710099992966,
+        "p5": 5.118893949997982
+      },
+      "energy_kwh": {
+        "total": 1.532289789641451e-05,
+        "per_rep": 3.064579579282902e-07
+      },
+      "accuracy": {
+        "metric": "rmse",
+        "value": 1.9212709711219247
+      }
+    }
+  ]
+}
