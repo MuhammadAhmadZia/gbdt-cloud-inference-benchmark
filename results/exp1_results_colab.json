@@ -1,0 +1,32 @@
+{
+  "platform": "colab",
+  "experiment": "exp1_proper_quantization",
+  "batch_size": 10000,
+  "n_reps_per_config": 50,
+  "note": "Mean values from a single completed run of code/exp1_proper_quantization.py on Google Colab (Python 3.12.13, lightgbm 4.6.0, xgboost 3.2.0, catboost 1.2.10). Per-call latency sample arrays are not preserved in this summary file; re-running the script regenerates the full results with samples and 95% CIs.",
+  "experiments": [
+    {"dataset": "olist",    "model": "lightgbm", "precision": "fp64",           "latency_ms": {"mean": 82.63}, "accuracy": {"metric": "roc_auc", "value": 0.7869}},
+    {"dataset": "olist",    "model": "lightgbm", "precision": "naive_int8",     "latency_ms": {"mean": 46.14}, "accuracy": {"metric": "roc_auc", "value": 0.5444}},
+    {"dataset": "olist",    "model": "lightgbm", "precision": "proper_dequant", "latency_ms": {"mean": 82.45}, "accuracy": {"metric": "roc_auc", "value": 0.7840}},
+
+    {"dataset": "olist",    "model": "xgboost",  "precision": "fp64",           "latency_ms": {"mean": 44.18}, "accuracy": {"metric": "roc_auc", "value": 0.7839}},
+    {"dataset": "olist",    "model": "xgboost",  "precision": "naive_int8",     "latency_ms": {"mean": 42.97}, "accuracy": {"metric": "roc_auc", "value": 0.5498}},
+    {"dataset": "olist",    "model": "xgboost",  "precision": "proper_dequant", "latency_ms": {"mean": 44.45}, "accuracy": {"metric": "roc_auc", "value": 0.7378}},
+
+    {"dataset": "olist",    "model": "catboost", "precision": "fp64",           "latency_ms": {"mean":  7.61}, "accuracy": {"metric": "roc_auc", "value": 0.7764}},
+    {"dataset": "olist",    "model": "catboost", "precision": "naive_int8",     "latency_ms": {"mean":  7.83}, "accuracy": {"metric": "roc_auc", "value": 0.5444}},
+    {"dataset": "olist",    "model": "catboost", "precision": "proper_dequant", "latency_ms": {"mean":  8.88}, "accuracy": {"metric": "roc_auc", "value": 0.7758}},
+
+    {"dataset": "nyc_taxi", "model": "lightgbm", "precision": "fp64",           "latency_ms": {"mean": 421.81}, "accuracy": {"metric": "rmse", "value": 0.2589}},
+    {"dataset": "nyc_taxi", "model": "lightgbm", "precision": "naive_int8",     "latency_ms": {"mean": 200.26}, "accuracy": {"metric": "rmse", "value": 1.8187}},
+    {"dataset": "nyc_taxi", "model": "lightgbm", "precision": "proper_dequant", "latency_ms": {"mean": 427.03}, "accuracy": {"metric": "rmse", "value": 0.2613}},
+
+    {"dataset": "nyc_taxi", "model": "xgboost",  "precision": "fp64",           "latency_ms": {"mean": 106.63}, "accuracy": {"metric": "rmse", "value": 0.2647}},
+    {"dataset": "nyc_taxi", "model": "xgboost",  "precision": "naive_int8",     "latency_ms": {"mean": 115.00}, "accuracy": {"metric": "rmse", "value": 1.8882}},
+    {"dataset": "nyc_taxi", "model": "xgboost",  "precision": "proper_dequant", "latency_ms": {"mean": 204.88}, "accuracy": {"metric": "rmse", "value": 0.2863}},
+
+    {"dataset": "nyc_taxi", "model": "catboost", "precision": "fp64",           "latency_ms": {"mean":  7.65}, "accuracy": {"metric": "rmse", "value": 5.6099}, "note": "CatBoost-NYC baseline is anomalous (RMSE ~5.6 vs the healthy ~0.28 obtained in the runtime experiment with the same model file). This indicates a CatBoost regression-prediction handling issue in this script's path, not a broken model. The paper omits CatBoost-NYC from Section 4.4 for this reason."},
+    {"dataset": "nyc_taxi", "model": "catboost", "precision": "naive_int8",     "latency_ms": {"mean":  7.75}, "accuracy": {"metric": "rmse", "value": 5.6167}, "note": "see fp64 note"},
+    {"dataset": "nyc_taxi", "model": "catboost", "precision": "proper_dequant", "latency_ms": {"mean":  7.91}, "accuracy": {"metric": "rmse", "value": 5.6099}, "note": "see fp64 note"}
+  ]
+}
