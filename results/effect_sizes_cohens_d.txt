@@ -1,103 +1,97 @@
-Cohen's d for FP64 vs each lower-precision profile
-Latency, 10,000-row batch, 50 reps per cell. Computed from per-cell mean and std
-using pooled-SD formula. |d|<0.2 negligible, 0.2-0.5 small, 0.5-0.8 moderate,
-0.8-1.5 large, 1.5-3.0 very large, >3.0 huge.
-
-platform      engine     dataset    comparison          cohens_d magnitude   
------------------------------------------------------------------------------
-colab         catboost   nyc_taxi   fp64_vs_fp32          +0.225  small       
-colab         catboost   nyc_taxi   fp64_vs_fp16          -0.973  large       
-colab         catboost   nyc_taxi   fp64_vs_bf16          -2.702  very large  
-colab         catboost   nyc_taxi   fp64_vs_int8          -2.775  very large  
-colab         catboost   olist      fp64_vs_fp32          +0.891  large       
-colab         catboost   olist      fp64_vs_fp16          +0.914  large       
-colab         catboost   olist      fp64_vs_bf16          +0.881  large       
-colab         catboost   olist      fp64_vs_int8          +0.854  large       
-colab         lightgbm   nyc_taxi   fp64_vs_fp32          +0.119  negligible  
-colab         lightgbm   nyc_taxi   fp64_vs_fp16          -0.059  negligible  
-colab         lightgbm   nyc_taxi   fp64_vs_bf16          +0.099  negligible  
-colab         lightgbm   nyc_taxi   fp64_vs_int8          +4.453  huge        
-colab         lightgbm   olist      fp64_vs_fp32          +0.338  small       
-colab         lightgbm   olist      fp64_vs_fp16          +0.187  negligible  
-colab         lightgbm   olist      fp64_vs_bf16          +0.195  negligible  
-colab         lightgbm   olist      fp64_vs_int8          +3.361  huge        
-colab         xgboost    nyc_taxi   fp64_vs_fp32          +0.054  negligible  
-colab         xgboost    nyc_taxi   fp64_vs_fp16          +0.741  moderate    
-colab         xgboost    nyc_taxi   fp64_vs_bf16          -0.450  small       
-colab         xgboost    nyc_taxi   fp64_vs_int8          +0.820  large       
-colab         xgboost    olist      fp64_vs_fp32          +0.314  small       
-colab         xgboost    olist      fp64_vs_fp16          +0.150  negligible  
-colab         xgboost    olist      fp64_vs_bf16          -2.835  very large  
-colab         xgboost    olist      fp64_vs_int8          -0.497  small       
-kaggle        catboost   nyc_taxi   fp64_vs_fp32          +0.160  negligible  
-kaggle        catboost   nyc_taxi   fp64_vs_fp16          -0.043  negligible  
-kaggle        catboost   nyc_taxi   fp64_vs_bf16          +0.185  negligible  
-kaggle        catboost   nyc_taxi   fp64_vs_int8          +0.084  negligible  
-kaggle        catboost   olist      fp64_vs_fp32          -0.300  small       
-kaggle        catboost   olist      fp64_vs_fp16          +0.087  negligible  
-kaggle        catboost   olist      fp64_vs_bf16          +0.134  negligible  
-kaggle        catboost   olist      fp64_vs_int8          +0.060  negligible  
-kaggle        lightgbm   nyc_taxi   fp64_vs_fp32          -0.908  large       
-kaggle        lightgbm   nyc_taxi   fp64_vs_fp16          +0.369  small       
-kaggle        lightgbm   nyc_taxi   fp64_vs_bf16          -0.181  negligible  
-kaggle        lightgbm   nyc_taxi   fp64_vs_int8         +18.821  huge        
-kaggle        lightgbm   olist      fp64_vs_fp32          +0.173  negligible  
-kaggle        lightgbm   olist      fp64_vs_fp16          -0.195  negligible  
-kaggle        lightgbm   olist      fp64_vs_bf16         -11.581  huge        
-kaggle        lightgbm   olist      fp64_vs_int8          +2.090  very large  
-kaggle        xgboost    nyc_taxi   fp64_vs_fp32          +0.623  moderate    
-kaggle        xgboost    nyc_taxi   fp64_vs_fp16          +0.430  small       
-kaggle        xgboost    nyc_taxi   fp64_vs_bf16          -0.344  small       
-kaggle        xgboost    nyc_taxi   fp64_vs_int8          +0.441  small       
-kaggle        xgboost    olist      fp64_vs_fp32          +0.395  small       
-kaggle        xgboost    olist      fp64_vs_fp16          +0.071  negligible  
-kaggle        xgboost    olist      fp64_vs_bf16          +0.353  small       
-kaggle        xgboost    olist      fp64_vs_int8          +0.400  small       
-codespaces    catboost   nyc_taxi   fp64_vs_fp32          +0.066  negligible  
-codespaces    catboost   nyc_taxi   fp64_vs_fp16          +0.038  negligible  
-codespaces    catboost   nyc_taxi   fp64_vs_bf16          -0.487  small       
-codespaces    catboost   nyc_taxi   fp64_vs_int8          -0.657  moderate    
-codespaces    catboost   olist      fp64_vs_fp32          +0.122  negligible  
-codespaces    catboost   olist      fp64_vs_fp16          +0.566  moderate    
-codespaces    catboost   olist      fp64_vs_bf16          +0.734  moderate    
-codespaces    catboost   olist      fp64_vs_int8          +0.713  moderate    
-codespaces    lightgbm   nyc_taxi   fp64_vs_fp32          -0.217  small       
-codespaces    lightgbm   nyc_taxi   fp64_vs_fp16          -0.040  negligible  
-codespaces    lightgbm   nyc_taxi   fp64_vs_bf16          -0.080  negligible  
-codespaces    lightgbm   nyc_taxi   fp64_vs_int8          +3.219  huge        
-codespaces    lightgbm   olist      fp64_vs_fp32          +0.237  small       
-codespaces    lightgbm   olist      fp64_vs_fp16          +0.250  small       
-codespaces    lightgbm   olist      fp64_vs_bf16          +0.037  negligible  
-codespaces    lightgbm   olist      fp64_vs_int8          +1.596  very large  
-codespaces    xgboost    nyc_taxi   fp64_vs_fp32          +0.238  small       
-codespaces    xgboost    nyc_taxi   fp64_vs_fp16          -0.104  negligible  
-codespaces    xgboost    nyc_taxi   fp64_vs_bf16          +0.278  small       
-codespaces    xgboost    nyc_taxi   fp64_vs_int8          +0.058  negligible  
-codespaces    xgboost    olist      fp64_vs_fp32          -0.179  negligible  
-codespaces    xgboost    olist      fp64_vs_fp16          -0.130  negligible  
-codespaces    xgboost    olist      fp64_vs_bf16          +0.227  small       
-codespaces    xgboost    olist      fp64_vs_int8          -0.290  small       
-huggingface   catboost   nyc_taxi   fp64_vs_fp32          +0.800  large       
-huggingface   catboost   nyc_taxi   fp64_vs_fp16          +0.391  small       
-huggingface   catboost   nyc_taxi   fp64_vs_bf16          +1.269  large       
-huggingface   catboost   nyc_taxi   fp64_vs_int8          -0.253  small       
-huggingface   catboost   olist      fp64_vs_fp32          -0.872  large       
-huggingface   catboost   olist      fp64_vs_fp16          -0.898  large       
-huggingface   catboost   olist      fp64_vs_bf16          -0.748  moderate    
-huggingface   catboost   olist      fp64_vs_int8          -0.327  small       
-huggingface   lightgbm   nyc_taxi   fp64_vs_fp32          +0.890  large       
-huggingface   lightgbm   nyc_taxi   fp64_vs_fp16          +0.570  moderate    
-huggingface   lightgbm   nyc_taxi   fp64_vs_bf16          -0.397  small       
-huggingface   lightgbm   nyc_taxi   fp64_vs_int8          +4.017  huge        
-huggingface   lightgbm   olist      fp64_vs_fp32          +0.561  moderate    
-huggingface   lightgbm   olist      fp64_vs_fp16          +0.196  negligible  
-huggingface   lightgbm   olist      fp64_vs_bf16          +1.340  large       
-huggingface   lightgbm   olist      fp64_vs_int8          +5.564  huge        
-huggingface   xgboost    nyc_taxi   fp64_vs_fp32          -0.695  moderate    
-huggingface   xgboost    nyc_taxi   fp64_vs_fp16          +0.306  small       
-huggingface   xgboost    nyc_taxi   fp64_vs_bf16          +0.743  moderate    
-huggingface   xgboost    nyc_taxi   fp64_vs_int8          +0.680  moderate    
-huggingface   xgboost    olist      fp64_vs_fp32          +0.278  small       
-huggingface   xgboost    olist      fp64_vs_fp16          -0.550  moderate    
-huggingface   xgboost    olist      fp64_vs_bf16          -0.375  small       
-huggingface   xgboost    olist      fp64_vs_int8          -0.053  negligible  
+platform   engine  dataset   comparison  cohens_d  magnitude
+      colab catboost nyc_taxi fp64_vs_fp32    +0.225      small
+      colab catboost nyc_taxi fp64_vs_fp16    -0.973      large
+      colab catboost nyc_taxi fp64_vs_bf16    -2.702      large
+      colab catboost nyc_taxi fp64_vs_int8    -2.775      large
+      colab catboost    olist fp64_vs_fp32    +0.891      large
+      colab catboost    olist fp64_vs_fp16    +0.914      large
+      colab catboost    olist fp64_vs_bf16    +0.881      large
+      colab catboost    olist fp64_vs_int8    +0.854      large
+      colab lightgbm nyc_taxi fp64_vs_fp32    +0.119 negligible
+      colab lightgbm nyc_taxi fp64_vs_fp16    -0.059 negligible
+      colab lightgbm nyc_taxi fp64_vs_bf16    +0.099 negligible
+      colab lightgbm nyc_taxi fp64_vs_int8    +4.453      large
+      colab lightgbm    olist fp64_vs_fp32    +0.338      small
+      colab lightgbm    olist fp64_vs_fp16    +0.187 negligible
+      colab lightgbm    olist fp64_vs_bf16    +0.195 negligible
+      colab lightgbm    olist fp64_vs_int8    +3.361      large
+      colab  xgboost nyc_taxi fp64_vs_fp32    +0.054 negligible
+      colab  xgboost nyc_taxi fp64_vs_fp16    +0.741   moderate
+      colab  xgboost nyc_taxi fp64_vs_bf16    -0.450      small
+      colab  xgboost nyc_taxi fp64_vs_int8    +0.820      large
+      colab  xgboost    olist fp64_vs_fp32    +0.314      small
+      colab  xgboost    olist fp64_vs_fp16    +0.150 negligible
+      colab  xgboost    olist fp64_vs_bf16    -2.835      large
+      colab  xgboost    olist fp64_vs_int8    -0.497      small
+     kaggle catboost nyc_taxi fp64_vs_fp32    +0.160 negligible
+     kaggle catboost nyc_taxi fp64_vs_fp16    -0.043 negligible
+     kaggle catboost nyc_taxi fp64_vs_bf16    +0.185 negligible
+     kaggle catboost nyc_taxi fp64_vs_int8    +0.084 negligible
+     kaggle catboost    olist fp64_vs_fp32    -0.300      small
+     kaggle catboost    olist fp64_vs_fp16    +0.087 negligible
+     kaggle catboost    olist fp64_vs_bf16    +0.134 negligible
+     kaggle catboost    olist fp64_vs_int8    +0.060 negligible
+     kaggle lightgbm nyc_taxi fp64_vs_fp32    -0.908      large
+     kaggle lightgbm nyc_taxi fp64_vs_fp16    +0.369      small
+     kaggle lightgbm nyc_taxi fp64_vs_bf16    -0.181 negligible
+     kaggle lightgbm nyc_taxi fp64_vs_int8   +18.821      large
+     kaggle lightgbm    olist fp64_vs_fp32    +0.173 negligible
+     kaggle lightgbm    olist fp64_vs_fp16    -0.195 negligible
+     kaggle lightgbm    olist fp64_vs_bf16   -11.581      large
+     kaggle lightgbm    olist fp64_vs_int8    +2.090      large
+     kaggle  xgboost nyc_taxi fp64_vs_fp32    +0.623   moderate
+     kaggle  xgboost nyc_taxi fp64_vs_fp16    +0.430      small
+     kaggle  xgboost nyc_taxi fp64_vs_bf16    -0.344      small
+     kaggle  xgboost nyc_taxi fp64_vs_int8    +0.441      small
+     kaggle  xgboost    olist fp64_vs_fp32    +0.395      small
+     kaggle  xgboost    olist fp64_vs_fp16    +0.071 negligible
+     kaggle  xgboost    olist fp64_vs_bf16    +0.353      small
+     kaggle  xgboost    olist fp64_vs_int8    +0.400      small
+ codespaces catboost nyc_taxi fp64_vs_fp32    +0.066 negligible
+ codespaces catboost nyc_taxi fp64_vs_fp16    +0.038 negligible
+ codespaces catboost nyc_taxi fp64_vs_bf16    -0.487      small
+ codespaces catboost nyc_taxi fp64_vs_int8    -0.657   moderate
+ codespaces catboost    olist fp64_vs_fp32    +0.122 negligible
+ codespaces catboost    olist fp64_vs_fp16    +0.566   moderate
+ codespaces catboost    olist fp64_vs_bf16    +0.734   moderate
+ codespaces catboost    olist fp64_vs_int8    +0.713   moderate
+ codespaces lightgbm nyc_taxi fp64_vs_fp32    -0.217      small
+ codespaces lightgbm nyc_taxi fp64_vs_fp16    -0.040 negligible
+ codespaces lightgbm nyc_taxi fp64_vs_bf16    -0.080 negligible
+ codespaces lightgbm nyc_taxi fp64_vs_int8    +3.219      large
+ codespaces lightgbm    olist fp64_vs_fp32    +0.237      small
+ codespaces lightgbm    olist fp64_vs_fp16    +0.250      small
+ codespaces lightgbm    olist fp64_vs_bf16    +0.037 negligible
+ codespaces lightgbm    olist fp64_vs_int8    +1.596      large
+ codespaces  xgboost nyc_taxi fp64_vs_fp32    +0.238      small
+ codespaces  xgboost nyc_taxi fp64_vs_fp16    -0.104 negligible
+ codespaces  xgboost nyc_taxi fp64_vs_bf16    +0.278      small
+ codespaces  xgboost nyc_taxi fp64_vs_int8    +0.058 negligible
+ codespaces  xgboost    olist fp64_vs_fp32    -0.179 negligible
+ codespaces  xgboost    olist fp64_vs_fp16    -0.130 negligible
+ codespaces  xgboost    olist fp64_vs_bf16    +0.227      small
+ codespaces  xgboost    olist fp64_vs_int8    -0.290      small
+huggingface catboost nyc_taxi fp64_vs_fp32    +0.800      large
+huggingface catboost nyc_taxi fp64_vs_fp16    +0.391      small
+huggingface catboost nyc_taxi fp64_vs_bf16    +1.269      large
+huggingface catboost nyc_taxi fp64_vs_int8    -0.253      small
+huggingface catboost    olist fp64_vs_fp32    -0.872      large
+huggingface catboost    olist fp64_vs_fp16    -0.898      large
+huggingface catboost    olist fp64_vs_bf16    -0.748   moderate
+huggingface catboost    olist fp64_vs_int8    -0.327      small
+huggingface lightgbm nyc_taxi fp64_vs_fp32    +0.890      large
+huggingface lightgbm nyc_taxi fp64_vs_fp16    +0.570   moderate
+huggingface lightgbm nyc_taxi fp64_vs_bf16    -0.397      small
+huggingface lightgbm nyc_taxi fp64_vs_int8    +4.017      large
+huggingface lightgbm    olist fp64_vs_fp32    +0.561   moderate
+huggingface lightgbm    olist fp64_vs_fp16    +0.196 negligible
+huggingface lightgbm    olist fp64_vs_bf16    +1.340      large
+huggingface lightgbm    olist fp64_vs_int8    +5.564      large
+huggingface  xgboost nyc_taxi fp64_vs_fp32    -0.695   moderate
+huggingface  xgboost nyc_taxi fp64_vs_fp16    +0.306      small
+huggingface  xgboost nyc_taxi fp64_vs_bf16    +0.743   moderate
+huggingface  xgboost nyc_taxi fp64_vs_int8    +0.680   moderate
+huggingface  xgboost    olist fp64_vs_fp32    +0.278      small
+huggingface  xgboost    olist fp64_vs_fp16    -0.550   moderate
+huggingface  xgboost    olist fp64_vs_bf16    -0.375      small
+huggingface  xgboost    olist fp64_vs_int8    -0.053 negligible
