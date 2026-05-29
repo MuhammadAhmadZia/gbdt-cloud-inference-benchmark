@@ -1,0 +1,117 @@
+{
+  "platform": "colab",
+  "experiment": "exp2_single_thread",
+  "batch_size": 10000,
+  "n_reps_per_config": 50,
+  "note": "Summary file from a completed run of code/exp2_single_thread.py (mean and 95% CI half-width per configuration; per-call sample arrays are produced by the script when re-run but are not preserved in this summary). FP32 only. precision='fp32_default' uses each engine's default thread setting (all cores); precision='fp32_1thread' forces num_threads/nthread/thread_count = 1.",
+  "experiments": [
+    {
+      "dataset": "olist",
+      "model": "lightgbm",
+      "precision": "fp32_default",
+      "latency_ms": {
+        "mean": 83.36,
+        "ci95_half": 8.27
+      }
+    },
+    {
+      "dataset": "olist",
+      "model": "lightgbm",
+      "precision": "fp32_1thread",
+      "latency_ms": {
+        "mean": 150.62,
+        "ci95_half": 15.98
+      }
+    },
+    {
+      "dataset": "olist",
+      "model": "xgboost",
+      "precision": "fp32_default",
+      "latency_ms": {
+        "mean": 42.62,
+        "ci95_half": 3.62
+      }
+    },
+    {
+      "dataset": "olist",
+      "model": "xgboost",
+      "precision": "fp32_1thread",
+      "latency_ms": {
+        "mean": 48.22,
+        "ci95_half": 4.04
+      }
+    },
+    {
+      "dataset": "olist",
+      "model": "catboost",
+      "precision": "fp32_default",
+      "latency_ms": {
+        "mean": 8.44,
+        "ci95_half": 0.46
+      }
+    },
+    {
+      "dataset": "olist",
+      "model": "catboost",
+      "precision": "fp32_1thread",
+      "latency_ms": {
+        "mean": 9.19,
+        "ci95_half": 1.12
+      }
+    },
+    {
+      "dataset": "nyc_taxi",
+      "model": "lightgbm",
+      "precision": "fp32_default",
+      "latency_ms": {
+        "mean": 484.14,
+        "ci95_half": 142.53
+      }
+    },
+    {
+      "dataset": "nyc_taxi",
+      "model": "lightgbm",
+      "precision": "fp32_1thread",
+      "latency_ms": {
+        "mean": 566.8,
+        "ci95_half": 55.36
+      }
+    },
+    {
+      "dataset": "nyc_taxi",
+      "model": "xgboost",
+      "precision": "fp32_default",
+      "latency_ms": {
+        "mean": 148.35,
+        "ci95_half": 49.54
+      }
+    },
+    {
+      "dataset": "nyc_taxi",
+      "model": "xgboost",
+      "precision": "fp32_1thread",
+      "latency_ms": {
+        "mean": 117.11,
+        "ci95_half": 16.54
+      }
+    },
+    {
+      "dataset": "nyc_taxi",
+      "model": "catboost",
+      "precision": "fp32_default",
+      "latency_ms": {
+        "mean": 8.64,
+        "ci95_half": 0.51
+      }
+    },
+    {
+      "dataset": "nyc_taxi",
+      "model": "catboost",
+      "precision": "fp32_1thread",
+      "latency_ms": {
+        "mean": 9.1,
+        "ci95_half": 1.21
+      }
+    }
+  ]
+}
