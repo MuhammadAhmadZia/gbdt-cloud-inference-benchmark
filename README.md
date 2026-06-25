@@ -1,11 +1,11 @@
 # Precision and Latency Benchmarking of GBDT Inference Across Cloud CPU Environments for Sustainable Urban Services
 
 Companion repository to the paper. Contains the trained models' generation
-script, the main benchmark harness, the four Phase 3 follow-up experiments,
-and the aggregation / analysis pipeline needed to reproduce every figure and
-table.
+script, the main benchmark harness, the Phase 3 follow-up experiments, the
+detailed timing / statistical analysis, and the aggregation pipeline needed to
+reproduce every figure and table.
 
-DOI: `10.5281/zenodo.20311801`
+DOI: `10.5281/zenodo.20447873`
 
 ---
 
@@ -19,11 +19,11 @@ The study runs in three phases (Fig. 1 of the paper):
 * **Phase 2** &mdash; inference benchmarking of the trained models across four
   free-tier cloud CPU environments and five precision profiles
   (FP64, FP32, FP16, BF16, INT8). 6,000 timed runs (50 reps each).
-* **Phase 3** &mdash; four follow-up experiments on a single platform (Colab,
-  unless noted) that close the gaps identified during review: in-range 8-bit
-  quantization (accuracy recovery), single-thread latency control, real
-  compiled inference runtimes (Treelite + ONNX Runtime), and the
-  variance-decomposition / effect-size analysis.
+* **Phase 3** &mdash; three follow-up experiments on a single platform (Colab,
+  unless noted) that isolate specific effects &mdash; in-range 8-bit
+  quantization (accuracy recovery), single-thread latency control, and real
+  compiled inference runtimes (Treelite + ONNX Runtime) &mdash; plus the
+  variance-decomposition / effect-size analysis of the Phase 2 runs.
 
 ---
 
@@ -39,6 +39,12 @@ code/
   exp4_real_runtime_benchmark.py    Phase 3: Treelite + ONNX Runtime (Sec. 4.5)
   anova_variance_decomposition.py   four-way ANOVA on log-latency (Sec. 4.3)
   cohens_d.py                       Cohen's d for FP64 vs each precision
+  inference_benchmark_detailed.py   per-call timing decomposition, raw latencies, sustained energy
+  hierarchical_latency_analysis.py  mixed-effects model + variance decomposition on raw
+                                    repetitions (single-platform hierarchical complement to
+                                    anova_variance_decomposition.py)
+  model_complexity.py               per-model complexity report (trees, leaves, size, performance)
+  co2_estimate.py                   illustrative carbon-saving estimate from measured energy
 
 results/
   results_broadwell_colab.json      Phase 2 raw results per platform
@@ -57,6 +63,10 @@ results/
 
   anova_decomposition.txt           eta-squared by factor
   effect_sizes_cohens_d.txt         Cohen's d table per (platform, engine, dataset)
+
+  results_detailed_broadwell_colab.json   detailed per-call timing + raw latencies
+  model_complexity.csv                     per-model complexity table
+  hierarchical_anova.csv                   variance decomposition (mixed-effects ANOVA)
 ```
 
 ---
@@ -129,6 +139,28 @@ python code/cohens_d.py                        # -> results/effect_sizes_cohens_
 Both read the four Phase-2 JSONs and reproduce the numbers cited in
 Sections 4.1 and 4.3.
 
+### Detailed timing, complexity, and hierarchical analysis
+
+```bash
+# per-call timing decomposition, raw latencies, sustained energy (per platform)
+python code/inference_benchmark_detailed.py     # -> results/results_detailed_<platform>.json
+
+# mixed-effects model + variance decomposition on the raw repetitions
+python code/hierarchical_latency_analysis.py    # -> results/hierarchical_anova.csv
+
+# per-model complexity report
+python code/model_complexity.py                 # -> results/model_complexity.csv
+
+# illustrative carbon-saving estimate from measured energy
+python code/co2_estimate.py
+```
+
+`inference_benchmark_detailed.py` separates input casting, DMatrix
+construction, and the prediction call, and retains the raw per-repetition
+latencies. `hierarchical_latency_analysis.py` consumes those raw repetitions to
+fit a configuration-level random-intercept model and report the intraclass
+correlation alongside the variance decomposition.
+
 ---
 
 ## Supplementary materials
@@ -144,10 +176,14 @@ The following files contain the supporting data behind the paper's claims:
 * `anova_decomposition.txt` &mdash; the four-way ANOVA eta-squared
   attribution by engine, dataset, platform, and precision; reproduces the
   79% / 8% / 5% / <1% figures in Section 4.3.
+* `model_complexity.csv` &mdash; final complexity of each trained model
+  (trees, leaves, best iteration, on-disk size, held-out performance).
+* `hierarchical_anova.csv` &mdash; variance decomposition from the
+  configuration-level mixed-effects model on the raw repetitions.
 
 ---
 
-## Notes for reviewers and re-runners
+## Notes on measurement
 
 * Free-tier cloud environments are shared and noisy. Per-call timings include
   tenant interference; we mitigate with 50-run averaging and 95% confidence
