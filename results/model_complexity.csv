@@ -1,0 +1,7 @@
+dataset,engine,trees,total_leaves,avg_leaves_per_tree,best_iteration,model_size_kb,metric,performance
+olist,lightgbm,138,8694,63.0,138,919.2,ROC-AUC,0.7869
+olist,xgboost,194,9680,49.9,143,1137.7,ROC-AUC,0.7826
+olist,catboost,471,,,471,549.4,ROC-AUC,0.7764
+nyc_taxi,lightgbm,500,31500,63.0,500,2903.5,RMSE,0.2589
+nyc_taxi,xgboost,500,31417,62.8,499,3408.9,RMSE,0.2647
+nyc_taxi,catboost,500,,,500,565.0,RMSE,0.2786
